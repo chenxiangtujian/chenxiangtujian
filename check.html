@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>真假分辨 - 沉香图鉴</title>
+<meta name="description" content="沉香真假 5 步自查：拍照片、答 5 个问题，得一份风险报告。照片不上传，结果仅供参考，最终以送检为准。">
+<link rel="icon" href="images/app_icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="app-header"><div class="row"><div class="logo"><span>沉</span><span>香</span><span>真</span><span class="fake">假</span></div><div><div class="brand">沉香图鉴</div><div class="subtitle">5步初筛 · 不分产区都适用</div></div></div><div class="gold-line"></div></header>
+<div class="disclaimer">本网站不识别照片内容：结果只来自你的回答，照片需人工复核。最终要靠显微构造 + 成分检测。检测只证明是不是沉香属，不评产区和商业价值。</div><div class="sec-title">拍照自查</div><div id="photoBox"><div class="photo-zone" onclick="document.getElementById('fileInput').click()"><div class="plus">＋ 选择照片</div><div class="hint">拍沉香的油线、切面、整体各一张，最多选 3 张</div><div class="hint">照片必填，没选照片看不了结果。照片只存在你的浏览器里，不上传</div></div></div><input type="file" id="fileInput" accept="image/*" multiple style="display:none" onchange="pickPhotos(this)"><div style="margin-top:12px;"><div class="q-card"><div class="qt">油线自然吗？</div><div class="qd">油线自然不规则，不是整齐划一、不是死黑一片。</div><div class="q-btns"><button class="q-btn" id="y0" onclick="answer(0,1)">是</button><button class="q-btn" id="n0" onclick="answer(0,2)">否</button></div></div><div class="q-card"><div class="qt">气味正常吗？</div><div class="qd">室温下淡香，上炉有层次；没有刺鼻化学味、没有单一齁甜。</div><div class="q-btns"><button class="q-btn" id="y1" onclick="answer(1,1)">是</button><button class="q-btn" id="n1" onclick="answer(1,2)">否</button></div></div><div class="q-card"><div class="qt">沉水或半沉水吗？</div><div class="qd">沉水、半沉水都正常。浮水不等于假，密度只是参考之一。</div><div class="q-btns"><button class="q-btn" id="y2" onclick="answer(2,1)">是</button><button class="q-btn" id="n2" onclick="answer(2,2)">否</button></div></div><div class="q-card"><div class="qt">有对应的证书吗？</div><div class="qd">有 CMA 报告，且报告编号、样品信息和手里的实物对得上。</div><div class="q-btns"><button class="q-btn" id="y3" onclick="answer(3,1)">是</button><button class="q-btn" id="n3" onclick="answer(3,2)">否</button></div></div><div class="q-card"><div class="qt">照片拍的是沉香本身吗？</div><div class="qd">照片里是沉香、手串、精油或线香本身，不是人、风景或其他物品。</div><div class="q-btns"><button class="q-btn" id="y4" onclick="answer(4,1)">是</button><button class="q-btn" id="n4" onclick="answer(4,2)">否</button></div></div></div><button class="result-btn" id="resultBtn" onclick="showResult()">查看初步结果（请先选择照片）</button><div id="resultBox"></div><div class="sec-title">证书查询</div><a class="cert-link" href="https://www.samr.gov.cn/" target="_blank" rel="noopener"><div class="t"><span>检验检测报告编号查询</span><span class="arr">›</span></div><div class="d">市场监管总局官网：服务 → 我要查 → 认证认可检验检测 → 检验检测报告编号查询。输入报告编号，查出具时间和机构，辨别编号真伪，支持 2016 年以来的报告。</div><div class="u">www.samr.gov.cn</div></a><a class="cert-link" href="http://cx.cnca.cn" target="_blank" rel="noopener"><div class="t"><span>检验检测机构 CMA 资质查询</span><span class="arr">›</span></div><div class="d">全国认证认可信息公共服务平台：输入机构名称或 CMA 证书编号，核对资质是否有效、检测项目是否在批准范围内。</div><div class="u">cx.cnca.cn</div></a><a class="cert-link" href="https://www.cnas.org.cn/" target="_blank" rel="noopener"><div class="t"><span>CNAS 认可机构查询</span><span class="arr">›</span></div><div class="d">中国合格评定国家认可委员会官网：查实验室是否获得 CNAS 认可，认可范围是否覆盖你的检测项目。</div><div class="u">www.cnas.org.cn</div></a><div class="muted" style="margin-top:8px;">编号查到只证明编号真实；报告内容是否与你的样品一致，要直接问出具机构。报告上的二维码也可以扫，在出具机构官网核验。</div><div class="sec-title">5 步自查清单</div><div class="check-item"><div class="n">1</div><div><div style="font-size:14px;font-weight:bold;">看纹理</div><div class="secondary">油线自然不规则，太整齐、太黑要警惕泡油和染色。</div></div></div><div class="check-item"><div class="n">2</div><div><div style="font-size:14px;font-weight:bold;">闻香韵</div><div class="secondary">室温淡、上炉层次多是正常的。刺鼻、单一甜香要小心。</div></div></div><div class="check-item"><div class="n">3</div><div><div style="font-size:14px;font-weight:bold;">查证书</div><div class="secondary">编号必须和实物一一对应，批量通用证书等于没证。优先 CMA + CNAS。</div></div></div><div class="check-item"><div class="n">4</div><div><div style="font-size:14px;font-weight:bold;">看密度</div><div class="secondary">沉水不等于好，浮水不等于假，密度只是参考之一。</div></div></div><div class="check-item"><div class="n">5</div><div><div style="font-size:14px;font-weight:bold;">查溯源</div><div class="secondary">产地、批次、结香方式能不能说清，说不清就先别买。</div></div></div>
+</div>
+<nav class="bottom-nav"><div class="inner"><a class="nav-item" href="index.html"><div class="ico">⌂</div>首页</a><a class="nav-item" href="wiki.html"><div class="ico">▤</div>百科</a><a class="nav-center" href="check.html"><div><div class="circle"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1E1710" stroke-width="2.4"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg></div><div class="lbl">真假分辨</div></div></a><a class="nav-item" href="guide.html"><div class="ico">◐</div>选购指南</a><a class="nav-item" href="about.html"><div class="ico">◯</div>关于</a></div></nav>
+<script src="site.js"></script>
+<script>
+var answers = [0,0,0,0,0];
+var photoCount = 0;
+var QT = ["油线自然吗？","气味正常吗？","沉水或半沉水吗？","有对应的证书吗？","照片拍的是沉香本身吗？"];
+function pickPhotos(input) {
+  var files = Array.prototype.slice.call(input.files || [], 0, 3);
+  photoCount = files.length;
+  var box = document.getElementById("photoBox");
+  if (!files.length) { photoCount = 0; updateBtn(); return; }
+  var reads = files.map(function(f){ return new Promise(function(res){ var r = new FileReader(); r.onload = function(e){ res(e.target.result); }; r.readAsDataURL(f); }); });
+  Promise.all(reads).then(function(urls){
+    box.innerHTML = '<div class="card" style="cursor:pointer;" onclick="document.getElementById(\'fileInput\').click()">' +
+      '<div class="photo-grid">' + urls.map(function(u){ return '<img src="' + u + '" alt="">'; }).join("") + '</div>' +
+      '<div class="muted" style="text-align:center;margin-top:8px;">点一下换照片</div></div>';
+    updateBtn();
+  });
+  document.getElementById("resultBox").innerHTML = "";
+}
+function answer(i, v) {
+  answers[i] = v;
+  document.getElementById("y"+i).className = "q-btn" + (v === 1 ? " yes-on" : "");
+  document.getElementById("n"+i).className = "q-btn" + (v === 2 ? " no-on" : "");
+  document.getElementById("resultBox").innerHTML = "";
+  updateBtn();
+}
+function answeredCount(){ return answers.filter(function(a){ return a !== 0; }).length; }
+function updateBtn() {
+  var btn = document.getElementById("resultBtn");
+  var ready = photoCount > 0 && answeredCount() >= 5;
+  btn.className = "result-btn" + (ready ? " ready" : "");
+  btn.textContent = photoCount === 0 ? "查看初步结果（请先选择照片）" :
+    (answeredCount() < 5 ? "查看初步结果（已答 " + answeredCount() + " / 5）" : "查看初步结果");
+}
+function showResult() {
+  if (!(photoCount > 0 && answeredCount() >= 5)) return;
+  var box = document.getElementById("resultBox");
+  var fine = "结论来自你的回答，本网站没有识别照片内容。本结果仅供参考，不构成鉴定结论。";
+  if (answers[4] === 2) {
+    box.innerHTML = '<div class="result-card" style="background:var(--red)"><h3>照片拍的不是沉香</h3><p>请重新选择沉香本身的照片（油线、切面、整体），再做自查。</p><p class="fine">本结果仅供参考，不构成鉴定结论。</p></div>';
+    return;
+  }
+  var flags = [];
+  for (var i = 0; i < 4; i++) { if (answers[i] === 2) flags.push(QT[i].replace("吗？", "")); }
+  var head = flags.length === 0 ? "5 项自查未发现存疑点" : "发现 " + flags.length + " 个存疑点：" + flags.join("、");
+  var body = flags.length === 0 ? "根据你的回答，没有发现异常特征。照片还需人工复核确认，最终结论以送检为准。" : "建议先别买，找人工复核或送检确认。照片看不清的地方很多，现场和检测才能定。";
+  box.innerHTML = '<div class="result-card" style="background:' + (flags.length === 0 ? "var(--ink)" : "var(--red)") + '"><h3>' + head + '</h3><p>' + body + '</p><p class="fine">' + fine + '</p></div>' +
+    '<div class="review-card" onclick="copyWechat(this)"><div style="font-size:13px;font-weight:bold;">提交人工复核 · 19.9 元/次</div><div class="wx">微信号：jiami366</div><div class="copy-hint muted">点一下复制微信号，加好友发照片，人工帮你看</div></div>';
+}
+</script>
+</body>
+</html>
