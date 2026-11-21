@@ -48,6 +48,10 @@ a { color: inherit; text-decoration: none; }
 .caption { font-size: 11px; color: var(--muted); margin-top: 6px; }
 .lead { font-size: 13px; color: #4A3B2C; line-height: 1.8; background: var(--card); border: 1px solid var(--line);
   border-radius: 12px; padding: 12px; margin-top: 14px; }
+/* 结论框：每篇文章顶部的“一句话结论”，结论先行 */
+.answer-box { background: var(--ink); color: #F3EBDD; border-radius: 12px; padding: 14px; margin-top: 14px; }
+.answer-box .kicker { font-size: 11px; color: var(--gold-light); letter-spacing: 2px; font-weight: bold; }
+.answer-box .txt { font-size: 14px; line-height: 1.8; margin-top: 6px; }
 h2.sec { font-size: 18px; font-weight: bold; font-family: serif; margin: 18px 0 0; }
 .body-p { font-size: 14px; line-height: 1.9; margin-top: 8px; }
 table.cmp { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line);
